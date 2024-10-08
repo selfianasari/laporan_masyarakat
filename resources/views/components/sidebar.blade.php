@@ -92,8 +92,8 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                <li class="nav-item"> <a class="nav-link" href="view/auth/login.blade.php"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="view/auth/register.blade.php"> Register </a></li>
               </ul>
             </div>
           </li>
