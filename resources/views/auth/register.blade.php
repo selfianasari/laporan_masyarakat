@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>Register</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/ti-icons/css/themify-icons.css">
@@ -46,19 +46,12 @@
                       <label class="form-check-label">
                         <input type="checkbox" class="form-check-input"> Remember me </label>
                     </div>
-                    <a href="#" class="forgot-pass">Forgot password</a>
+                    <a href="view/auth/forgot-password.blade.php" class="forgot-pass">Forgot password</a>
                   </div>
                   <div class="text-center d-grid gap-2">
                     <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                   </div>
-                  <div class="d-flex">
-                    <button class="btn btn-facebook col me-2">
-                      <i class="mdi mdi-facebook"></i> Facebook </button>
-                    <button class="btn btn-google col">
-                      <i class="mdi mdi-google-plus"></i> Google plus </button>
-                  </div>
                   <p class="sign-up text-center">Already have an Account?<a href="#"> Sign Up</a></p>
-                  <p class="terms">By creating an account you are accepting our<a href="#"> Terms & Conditions</a></p>
                 </form>
               </div>
             </div>
