@@ -28,23 +28,21 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+{
+    $request->validate([
+        'email' => ['required', 'string', 'email'],
+        'password' => ['required', 'string'],
+    ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+    if (Auth::attempt($request->only('email', 'password'))) {
+        // Login berhasil, redirect ke dashboard
+        return redirect()->route('dashboard');
     }
+
+    // Jika login gagal, kembali ke halaman login dengan error
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ]);
+}
+
 }

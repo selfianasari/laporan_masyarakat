@@ -22,14 +22,24 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+    public function store(Request $request): RedirectResponse
+{
+    $request->validate([
+        'email' => ['required', 'string', 'email'],
+        'password' => ['required', 'string'],
+    ]);
 
-        $request->session()->regenerate();
-
-        return redirect()->intended(route('dashboard', absolute: false));
+    if (Auth::attempt($request->only('email', 'password'))) {
+        // Login berhasil, redirect ke dashboard
+        return redirect()->route('dashboard');
     }
+
+    // Jika login gagal, kembali ke halaman login dengan error
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ]);
+}
+
 
     /**
      * Destroy an authenticated session.
