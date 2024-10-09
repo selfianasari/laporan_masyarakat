@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,5 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/settings', [SettingsController::class, 'index'])->middleware('auth')->name('settings.index');
+Route::get('/settings/update', [SettingsController::class, 'update'])->middleware('auth')->name('settings.update');
 
 require __DIR__.'/auth.php';

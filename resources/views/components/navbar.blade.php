@@ -35,7 +35,7 @@
                             <p class="preview-subject mb-1">Edit Profil</p>
                         </div>
                     </a>
-                    <a class="dropdown-item preview-item" href="{{ route('settings') }}">
+                    <a class="dropdown-item preview-item" href="{{ route('settings.index') }}">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-cog text-success"></i>
