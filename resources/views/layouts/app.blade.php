@@ -43,72 +43,78 @@
             </div>
             <div class="row">
               <div class="col-12">
+              <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Visitors by Countries</h4>
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="table-responsive">
-                          <table class="table">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-us"></i>
-                                </td>
-                                <td>USA</td>
-                                <td class="text-end"> 1500 </td>
-                                <td class="text-end font-weight-medium"> 56.35% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-de"></i>
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-end"> 800 </td>
-                                <td class="text-end font-weight-medium"> 33.25% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-au"></i>
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-end"> 760 </td>
-                                <td class="text-end font-weight-medium"> 15.45% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-gb"></i>
-                                </td>
-                                <td>United Kingdom</td>
-                                <td class="text-end"> 450 </td>
-                                <td class="text-end font-weight-medium"> 25.00% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-ro"></i>
-                                </td>
-                                <td>Romania</td>
-                                <td class="text-end"> 620 </td>
-                                <td class="text-end font-weight-medium"> 10.25% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-br"></i>
-                                </td>
-                                <td>Brasil</td>
-                                <td class="text-end"> 230 </td>
-                                <td class="text-end font-weight-medium"> 75.00% </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                      <div class="col-md-7">
-                        <div id="audience-map" class="vector-map"></div>
-                      </div>
+                    <h4 class="card-title">Daftar Pengaduan Masyarakat</h4>
+                    <p class="card-description">
+                      Berikut adalah daftar pengaduan yang diajukan oleh masyarakat:
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>ID Laporan</th>
+                            <th>Nama Pelapor</th>
+                            <th>Tanggal Pengaduan</th>
+                            <th>Status</th>
+                            <th>Deskripsi Singkat</th>
+                            <th>Aksi</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Contoh Data -->
+                          <tr>
+                            <td>001</td>
+                            <td>Justin Bieber</td>
+                            <td>2024-10-08</td>
+                            <td><label class="badge badge-warning">Diproses</label></td>
+                            <td>Laporan terkait kebisingan di lingkungan RT...</td>
+                            <td>
+                              <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                              <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>002</td>
+                            <td>Enami Asa</td>
+                            <td>2024-10-07</td>
+                            <td><label class="badge badge-success">Selesai</label></td>
+                            <td>Pengaduan terkait pencemaran air di sungai...</td>
+                            <td>
+                              <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                              <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>003</td>
+                            <td>Karina Aespa</td>
+                            <td>2024-10-06</td>
+                            <td><label class="badge badge-danger">Ditolak</label></td>
+                            <td>Laporan terkait pelanggaran kebersihan...</td>
+                            <td>
+                              <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                              <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>004</td>
+                            <td>Leornado D'Caprio</td>
+                            <td>2024-10-09</td>
+                            <td><label class="badge badge-warning">Diproses</label></td>
+                            <td>Laporan terkait kebisingan di lingkungan RT...</td>
+                            <td>
+                              <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                              <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
+              </div>
+
               </div>
             </div>
           </div>

@@ -68,7 +68,7 @@
             <span class="nav-link">Navigation</span>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('dashboard')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>
@@ -76,14 +76,14 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-icon">
-                    <i class="mdi mdi-laptop"></i>
-                </span>
-                <span class="menu-title">Form Elements</span>
-                <i class="menu-arrow"></i>
+            <a class="nav-link" href="{{ route('complaints.index')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Complaints Form</span>
+              <i class="menu-arrow"></i>
             </a>
-        </li>
+          </li>
         <li class="nav-item menu-items">
             <a class="nav-link" href="pages/tables/basic-table.html">
                 <span class="menu-icon">
