@@ -34,6 +34,7 @@ class AuthenticatedSessionController extends Controller
         return redirect()->route('dashboard');
     }
 
+
     // Jika login gagal, kembali ke halaman login dengan error
     return back()->withErrors([
         'email' => 'The provided credentials do not match our records.',

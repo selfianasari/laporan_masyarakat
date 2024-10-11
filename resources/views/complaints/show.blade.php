@@ -39,12 +39,14 @@
         <p>{{ $complaint->location }}</p>
     </div>
 
-    @if($complaint->attachment)
-        <div class="detail">
-            <label>Lampiran:</label>
+    <div class="detail">
+        <label>Lampiran:</label>
+        @if($complaint->attachment)
             <p><a href="{{ asset('storage/' . $complaint->attachment) }}" target="_blank">Lihat File</a></p>
-        </div>
-    @endif
+        @else
+            <p>Tidak ada lampiran.</p>
+        @endif
+    </div>
 
     <a href="{{ route('complaints.index') }}" class="back-button">Kembali ke Daftar Pengaduan</a>
 </div>

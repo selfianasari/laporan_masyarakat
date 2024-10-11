@@ -25,11 +25,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/edit/{id}', [ComplaintController::class, 'edit'])->name('complaints.edit');
         Route::get('/{id}', [ComplaintController::class, 'show'])->name('complaints.show');
         Route::patch('/{id}', [ComplaintController::class, 'update'])->name('complaints.update');
+        Route::post('/complaints', [ComplaintController::class, 'store'])->name('complaints.store');
         Route::delete('/{id}', [ComplaintController::class, 'destroy'])->name('complaints.destroy');
     });
 
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
-    Route::get('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
+    Route::patch('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
 
 require __DIR__.'/auth.php';

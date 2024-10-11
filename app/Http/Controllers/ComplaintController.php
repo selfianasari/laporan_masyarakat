@@ -12,7 +12,7 @@ class ComplaintController extends Controller
         $complaints = Complaint::all();
         return view('complaints.index', compact('complaints'));
     }
-    
+
     public function create()
     {
         return view('complaints.create');
@@ -28,15 +28,23 @@ class ComplaintController extends Controller
             'category' => 'required|string|max:100',
             'description' => 'required|string',
             'location' => 'nullable|string',
-            'attachment' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
+            'attachment' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
             'anonymous' => 'nullable|boolean',
         ]);
 
         // Menyimpan pengaduan
-        $complaint = new Complaint($request->all());
+        $complaint = new Complaint($request->except('attachment'));
+
+        // Jika ada file yang di-upload, simpan file-nya
+        if ($request->hasFile('attachment')) {
+            $file = $request->file('attachment');
+            $path = $file->store('attachments', 'public');
+            $complaint->attachment = $path;
+        }
+
         $complaint->save();
 
-        return redirect()->back()->with('success', 'Pengaduan Anda telah diterima.');
+        return redirect()->route('complaints.index')->with('success', 'Pengaduan Anda telah diterima.');
     }
 
     public function show($id)
@@ -45,14 +53,12 @@ class ComplaintController extends Controller
         return view('complaints.show', compact('complaint'));
     }
 
-    // Menampilkan formulir edit pengaduan
     public function edit($id)
     {
         $complaint = Complaint::findOrFail($id);
         return view('complaints.edit', compact('complaint'));
     }
 
-    // Memperbarui pengaduan
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -63,17 +69,25 @@ class ComplaintController extends Controller
             'category' => 'required|string|max:100',
             'description' => 'required|string',
             'location' => 'nullable|string',
-            'attachment' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
+            'attachment' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:4048',
             'anonymous' => 'nullable|boolean',
         ]);
-        
+
         $complaint = Complaint::findOrFail($id);
-        $complaint->update($request->all());
+        $complaint->fill($request->except('attachment'));
+
+        // Jika ada file baru yang di-upload, ganti file lama
+        if ($request->hasFile('attachment')) {
+            $file = $request->file('attachment');
+            $path = $file->store('attachments', 'public');
+            $complaint->attachment = $path;
+        }
+
+        $complaint->save();
 
         return redirect()->route('complaints.index')->with('success', 'Pengaduan telah diperbarui.');
     }
 
-    // Menghapus pengaduan
     public function destroy($id)
     {
         $complaint = Complaint::findOrFail($id);
