@@ -7,8 +7,8 @@
         @csrf 
         
         <!-- Informasi Pengguna -->
-        <fieldset>
-            <legend>Informasi Pengguna</legend>
+        <fieldset class="border p-3 mb-4">
+            <legend class="w-auto">Informasi Pengguna</legend>
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap:</label>
@@ -36,8 +36,8 @@
         </fieldset>
 
         <!-- Detail Pengaduan -->
-        <fieldset>
-            <legend>Detail Pengaduan</legend>
+        <fieldset class="border p-3 mb-4">
+            <legend class="w-auto">Detail Pengaduan</legend>
 
             <div class="mb-3">
                 <label for="date" class="form-label">Tanggal Pengaduan:</label>
@@ -79,8 +79,8 @@
         </fieldset>
 
         <!-- Lampiran -->
-        <fieldset>
-            <legend>Lampiran</legend>
+        <fieldset class="border p-3 mb-4">
+            <legend class="w-auto">Lampiran</legend>
 
             <div class="mb-3">
                 <label for="attachment" class="form-label">Upload File (optional):</label>
@@ -89,8 +89,8 @@
         </fieldset>
 
         <!-- Anonimitas -->
-        <fieldset>
-            <legend>Pilihan Privasi</legend>
+        <fieldset class="border p-3 mb-4">
+            <legend class="w-auto">Pilihan Privasi</legend>
 
             <div class="mb-3">
                 <label>
@@ -111,8 +111,8 @@
     </form>
 
     @if(session('success'))
-        <div class="thank-you-message">
-            <p>{{ session('success') }}</p>
+        <div class="thank-you-message mt-3">
+            <p class="alert alert-success">{{ session('success') }}</p>
         </div>
     @endif
 </div>

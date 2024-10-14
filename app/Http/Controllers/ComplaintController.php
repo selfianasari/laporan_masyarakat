@@ -19,8 +19,9 @@ class ComplaintController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
+{
+    try {
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:100',
             'phone' => 'nullable|string',
@@ -32,20 +33,16 @@ class ComplaintController extends Controller
             'anonymous' => 'nullable|boolean',
         ]);
 
-        // Menyimpan pengaduan
-        $complaint = new Complaint($request->except('attachment'));
+        // Jika validasi berhasil, simpan pengaduan
+        Complaint::create($validatedData);
 
-        // Jika ada file yang di-upload, simpan file-nya
-        if ($request->hasFile('attachment')) {
-            $file = $request->file('attachment');
-            $path = $file->store('attachments', 'public');
-            $complaint->attachment = $path;
-        }
-
-        $complaint->save();
-
-        return redirect()->route('complaints.index')->with('success', 'Pengaduan Anda telah diterima.');
+        return redirect()->route('complaints.index')->with('success', 'Pengaduan berhasil dikirim!');
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        // Tampilkan kesalahan
+        return back()->withErrors($e->validator)->withInput();
     }
+}
+
 
     public function show($id)
     {
