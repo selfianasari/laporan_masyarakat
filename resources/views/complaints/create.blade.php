@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<style>
+    .complaint-form-container {
+        background-color: #e0f7fa; 
+        padding: 20px; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
+</style>
+
+<div class="container complaint-form-container">
     <h2>Form Pengaduan</h2>
     <form action="{{ route('complaints.store') }}" method="POST" enctype="multipart/form-data">
         @csrf 

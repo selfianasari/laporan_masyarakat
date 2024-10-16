@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Complaint;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,6 +11,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');  
+        $complaints = Complaint::all();
+        return view('dashboard.index', compact('complaints'));  
     }
 }

@@ -92,4 +92,13 @@ class ComplaintController extends Controller
 
         return redirect()->route('complaints.index')->with('success', 'Pengaduan telah dihapus.');
     }
+    public function updateStatus($id, $status)
+{
+    $complaint = Complaint::findOrFail($id);
+    $complaint->status = $status;
+    $complaint->save();
+
+    return redirect()->route('complaints.index')->with('status', 'Status updated!');
+}
+
 }

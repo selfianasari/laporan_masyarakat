@@ -10,6 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware(['auth'])->group(function () {
     // Dashboard Route
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -36,6 +37,10 @@ Route::middleware(['auth'])->group(function () {
     // Settings Routes
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
     Route::patch('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
+}); 
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('complaints', ComplaintController::class); 
 });
 
 require __DIR__.'/auth.php';
