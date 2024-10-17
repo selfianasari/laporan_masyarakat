@@ -43,4 +43,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('complaints', ComplaintController::class); 
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('complaints', ComplaintController::class)->except([
+        'create', 'edit', 'store', 'update', 'destroy', 'show'
+    ]);
+    Route::patch('/complaints/{id}/status', [ComplaintController::class, 'updateStatus'])->name('complaints.updateStatus')->middleware('auth', 'admin');
+});
+
 require __DIR__.'/auth.php';
