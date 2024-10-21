@@ -76,7 +76,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('complaints.index')}}">
+            <a class="nav-link" href="{{ route('complaints.create')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>

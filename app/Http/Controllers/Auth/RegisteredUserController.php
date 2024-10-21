@@ -30,19 +30,24 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
 {
     $request->validate([
-        'email' => ['required', 'string', 'email'],
-        'password' => ['required', 'string'],
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'confirmed', Rules\Password::defaults()],
     ]);
 
-    if (Auth::attempt($request->only('email', 'password'))) {
-        // Login berhasil, redirect ke dashboard
-        return redirect()->route('dashboard');
-    }
-
-    // Jika login gagal, kembali ke halaman login dengan error
-    return back()->withErrors([
-        'email' => 'The provided credentials do not match our records.',
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'role' => 'user'
     ]);
+
+    event(new Registered($user));
+
+    Auth::login($user);
+
+    return redirect()->route('dashboard');
+
 }
 
 }
