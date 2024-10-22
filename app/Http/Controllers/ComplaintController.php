@@ -35,7 +35,7 @@ class ComplaintController extends Controller
 
             Complaint::create($validatedData);
 
-            return redirect()->route('complaints.index')->with('success', 'Pengaduan berhasil dikirim!');
+            return redirect()->route('dashboard')->with('success', 'Pengaduan berhasil dikirim!');
         } catch (\Illuminate\Validation\ValidationException $e) {
             return back()->withErrors($e->validator)->withInput();
         }
