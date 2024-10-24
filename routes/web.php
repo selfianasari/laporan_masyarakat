@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,10 +35,17 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}', [ComplaintController::class, 'destroy'])->name('complaints.destroy');
     });
 
+
     // Settings Routes
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
     Route::patch('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 }); 
+
+Route::middleware(['auth', 'admin'])->prefix('report')->group(function () {
+    Route::get('/', [ReportController::class, 'index'])->name('reports.index'); 
+    Route::get('/{report}', [ReportController::class, 'show'])->name('reports.show'); 
+    Route::post('/{report}/update', [ReportController::class, 'update'])->name('reports.update'); 
+});
 
 
 
