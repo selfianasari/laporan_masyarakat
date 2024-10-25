@@ -10,6 +10,7 @@ class ComplaintController extends Controller
     public function index()
     {
         $complaints = Complaint::all();
+        dd($complaints);
         return view('complaints.index', compact('complaints'));
     }
 
@@ -19,27 +20,40 @@ class ComplaintController extends Controller
     }
 
     public function store(Request $request)
-    {
-        try {
-            $validatedData = $request->validate([
-                'name' => 'required|string|max:255',
-                'email' => 'required|email|max:100',
-                'phone' => 'nullable|string',
-                'date' => 'required|date',
-                'category' => 'required|string|max:100',
-                'description' => 'required|string',
-                'location' => 'nullable|string',
-                'attachment' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-                'anonymous' => 'nullable|boolean',
-            ]);
+{
+    try {
+        // Validasi input termasuk file upload
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:100',
+            'phone' => 'nullable|string',
+            'date' => 'required|date',
+            'category' => 'required|string|max:100',
+            'description' => 'required|string',
+            'location' => 'nullable|string',
+            'attachment' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'anonymous' => 'nullable|boolean',
+        ]);
 
-            Complaint::create($validatedData);
-
-            return redirect()->route('dashboard')->with('success', 'Pengaduan berhasil dikirim!');
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return back()->withErrors($e->validator)->withInput();
+        // Cek jika ada file yang di-upload
+        if ($request->hasFile('attachment')) {
+            // Generate nama file unik
+            $fileName = time() . '.' . $request->attachment->extension();
+            // Pindahkan file ke folder 'uploads'
+            $request->attachment->move(public_path('uploads'), $fileName);
+            // Simpan nama file ke dalam array $validatedData
+            $validatedData['attachment'] = $fileName;
         }
+
+        // Simpan data ke database
+        Complaint::create($validatedData);
+
+        return redirect()->route('dashboard')->with('success', 'Pengaduan berhasil dikirim!');
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        return back()->withErrors($e->validator)->withInput();
     }
+}
+
 
     public function show($id)
     {

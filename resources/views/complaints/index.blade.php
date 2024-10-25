@@ -45,9 +45,11 @@
                 <td>
                     @if($complaint->attachment)
                         @if(Str::endsWith($complaint->attachment, ['.jpg', '.jpeg', '.png']))
-                            <img src="{{ asset('storage/'.$complaint->attachment) }}" alt="Lampiran" width="100">
+                            <img src="{{ asset('uploads/'.$complaint->attachment) }}" alt="Lampiran" width="100">
                         @elseif(Str::endsWith($complaint->attachment, '.pdf'))
-                            <a href="{{ asset('storage/'.$complaint->attachment) }}" target="_blank">Lihat PDF</a>
+                            <a href="{{ asset('uploads/'.$complaint->attachment) }}" target="_blank">Lihat PDF</a>
+                        @else
+                            <span>Format tidak didukung</span>
                         @endif
                     @else
                         Tidak ada lampiran

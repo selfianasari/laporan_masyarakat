@@ -48,7 +48,7 @@
         @endif
     </div>
 
-    <a href="{{ route('complaints.index') }}" class="back-button">Kembali ke Daftar Pengaduan</a>
+    <a href="{{ route('dashboard') }}" class="back-button">Kembali ke Daftar Pengaduan</a>
 </div>
 
 @endsection
