@@ -14,6 +14,7 @@ class ComplaintController extends Controller
         return view('complaints.index', compact('complaints'));
     }
 
+
     public function create()
     {
         return view('complaints.create');
@@ -115,4 +116,12 @@ class ComplaintController extends Controller
 
         return redirect()->route('complaints.index')->with('status', 'Status pengaduan telah diperbarui!');
     }
+
+    public function adminReport()
+    {
+        $complaints = Complaint::all(); // Admin bisa melihat semua komplain
+        return view('admin.report', compact('complaints'));
+    }
+
+    
 }
