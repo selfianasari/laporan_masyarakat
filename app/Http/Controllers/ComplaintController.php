@@ -10,7 +10,6 @@ class ComplaintController extends Controller
     public function index()
     {
         $complaints = Complaint::all();
-        dd($complaints);
         return view('complaints.index', compact('complaints'));
     }
 

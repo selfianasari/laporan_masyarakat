@@ -5,7 +5,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\ReportController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,18 +43,23 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 }); 
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/admin/complaints', [ComplaintController::class, 'index'])->name('complaints.index');
     Route::get('/admin/complaints/{id}', [ComplaintController::class, 'show'])->name('complaints.show');
     
     Route::patch('/admin/complaints/{id}/update-status', [ComplaintController::class, 'updateStatus'])->name('complaints.updateStatus');
 });
 
-Route::middleware(['auth', 'admin'])->prefix('report')->group(function () {
+Route::middleware(['auth', AdminMiddleware::class])->prefix('report')->group(function () {
     Route::get('/', [ReportController::class, 'index'])->name('reports.index'); 
     Route::get('/{report}', [ReportController::class, 'show'])->name('reports.show'); 
     Route::post('/{report}/update', [ReportController::class, 'update'])->name('reports.update'); 
 });
+
+Route::middleware(['auth', AdminMiddleware::class])->group(function () {
+    Route::resource('categories', CategoryController::class);
+});
+
 
 
 

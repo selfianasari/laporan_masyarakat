@@ -85,35 +85,12 @@
             </a>
           </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('reports.index')}}">
+            <a class="nav-link" href="{{ route('categories.index')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Report</span>
+                <span class="menu-title">Categories</span>
                 <i class="menu-arrow"></i>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                </span>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="view/auth/login.blade.php"> Login </a></li>
-                    <li class="nav-item"><a class="nav-link" href="view/auth/register.blade.php"> Register </a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="docs/documentation.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-file-document"></i>
-                </span>
-                <span class="menu-title">Documentation</span>
             </a>
         </li>
     </ul>
