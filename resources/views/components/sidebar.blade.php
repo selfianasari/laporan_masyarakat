@@ -1,8 +1,12 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="index.html"><img src="#" alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
-    </div>
+<div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <span style="font-size: 24px; font-weight: bold;">Complaint</span>
+    </a>
+    <a class="sidebar-brand brand-logo-mini" href="index.html">
+        <span style="font-size: 18px; font-weight: bold;">NA</span>
+    </a>
+</div>
+
     <ul class="nav">
         <li class="nav-item profile">
             <div class="profile-desc">
@@ -84,12 +88,13 @@
               <i class="menu-arrow"></i>
             </a>
           </li>
+        
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('categories.index')}}">
+            <a class="nav-link" href="{{ route('contact.form')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Categories</span>
+                <span class="menu-title">Contact Person</span>
                 <i class="menu-arrow"></i>
             </a>
         </li>

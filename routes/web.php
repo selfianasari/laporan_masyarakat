@@ -60,6 +60,10 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::resource('categories', CategoryController::class);
 });
 
+use App\Http\Controllers\ContactController;
+
+Route::get('/hubungi-kami', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/hubungi-kami', [ContactController::class, 'send'])->name('contact.send');
 
 
 

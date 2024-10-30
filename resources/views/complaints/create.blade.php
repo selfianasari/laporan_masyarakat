@@ -4,7 +4,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Form Pengaduan Masyarakat </h3>
+            <h3 class="page-title">Public Complaint Form</h3>
             <nav aria-label="breadcrumb"></nav>
         </div>
         
