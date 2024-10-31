@@ -1,4 +1,3 @@
-<!-- resources/views/emails/contact.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +9,6 @@
     <p><strong>Email:</strong> {{ $email }}</p>
     <p><strong>Subjek:</strong> {{ $subject }}</p>
     <p><strong>Pesan:</strong></p>
-    <p>{{ $message }}</p> <!-- Pastikan ini adalah string -->
+    <p>{{ $contactMessage }}</p> 
 </body>
 </html>
