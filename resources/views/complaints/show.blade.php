@@ -62,7 +62,7 @@
                             <div class="detail">
                                 <label>Lampiran:</label>
                                 @if($complaint->attachment)
-                                    <p><a href="{{ asset('storage/' . $complaint->attachment) }}" target="_blank">Lihat File</a></p>
+                                    <p><a href="{{ $complaint->attachment_url }}" target="_blank">Lihat File</a></p>
                                 @else
                                     <p>Tidak ada lampiran.</p>
                                 @endif

@@ -55,11 +55,15 @@ class ComplaintController extends Controller
 }
 
 
-    public function show($id)
-    {
-        $complaint = Complaint::findOrFail($id);
-        return view('complaints.show', compact('complaint'));
-    }
+public function show($id)
+{
+    $complaint = Complaint::findOrFail($id);
+    return view('complaints.show', [
+        'complaint' => $complaint,
+        'attachmentUrl' => $complaint->attachment_url,
+    ]);
+}
+
 
     public function edit($id)
     {

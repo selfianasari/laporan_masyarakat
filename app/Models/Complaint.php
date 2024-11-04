@@ -20,4 +20,10 @@ class Complaint extends Model
         'attachment',
         'anonymous',
     ];
+
+    public function getAttachmentUrlAttribute()
+{
+    return $this->attachment ? url('uploads/' . $this->attachment) : null;
+}
+
 }

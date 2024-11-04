@@ -10,7 +10,6 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
                         <div class="navbar-profile">
-                            <img class="img-xs rounded-circle" src="../../../assets/images/faces/face15.jpg" alt="">
                             <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p> <!-- Menampilkan nama pengguna -->
                             <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                         </div>
@@ -28,16 +27,7 @@
                                 <p class="preview-subject mb-1">Edit Profil</p>
                             </div>
                         </a>
-                        <a class="dropdown-item preview-item" href="{{ route('settings.index') }}">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-dark rounded-circle">
-                                    <i class="mdi mdi-cog text-success"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject mb-1">Settings</p>
-                            </div>
-                        </a>
+                       
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST" id="logout-form">
                             @csrf
