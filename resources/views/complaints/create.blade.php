@@ -83,10 +83,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="anonymous" name="anonymous" {{ old('anonymous') ? 'checked' : '' }}>
-                                <label class="form-check-label" for="anonymous">Kirim sebagai anonim</label>
-                            </div>
+                        
                             <div class="form-check">
                                 <input class="form-check-input @error('privacyPolicy') is-invalid @enderror" type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
                                 <label class="form-check-label" for="privacyPolicy">Saya setuju dengan <a href="#">kebijakan privasi</a></label>
@@ -95,8 +92,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <!-- Submit Button -->
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <button type="button" class="btn btn-dark">Cancel</button>
                     </form>

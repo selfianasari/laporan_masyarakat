@@ -35,11 +35,5 @@
 
         <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
-
-    <form method="POST" action="{{ route('profile.destroy') }}">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger mt-3">Delete Account</button>
-    </form>
 </div>
 @endsection

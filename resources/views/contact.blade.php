@@ -23,7 +23,7 @@
             </div>
         @endif
 
-        <!-- Contact Information -->
+        <!-- informasi contact -->
         <div class="contact-info mb-4">
             <h3>Informasi Kontak</h3>
             <p>Email: <a href="mailto:selfianasari0@gmail.com">selfianasari0@gmail.com</a></p>
@@ -31,7 +31,6 @@
             <p>Alamat: Jl. Karang Turi No. 300, Limbasari, Bobotsari</p>
         </div>
 
-        <!-- Contact Form Card -->
         <div class="row">
             <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">

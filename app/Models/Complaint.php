@@ -26,4 +26,6 @@ class Complaint extends Model
     return $this->attachment ? url('uploads/' . $this->attachment) : null;
 }
 
+
+
 }

@@ -23,7 +23,6 @@
                         <div class="card-body">
                             <h4 class="card-title">Informasi Pengaduan</h4>
 
-                            <!-- Complaint Details -->
                             <div class="detail">
                                 <label>Nama Lengkap:</label>
                                 <p>{{ $complaint->name }}</p>

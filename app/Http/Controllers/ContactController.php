@@ -21,7 +21,7 @@ class ContactController extends Controller
         'name' => $request->input('name'),
         'email' => $request->input('email'),
         'subject' => $request->input('subject'),
-        'contactMessage' => $request->input('message') // Pastikan variabel ini ada
+        'contactMessage' => $request->input('message') 
     ];
 
     Mail::send('emails.contact', $data, function($message) use ($data) {
@@ -29,7 +29,7 @@ class ContactController extends Controller
                 ->subject($data['subject']);
     });
 
-    return redirect()->back()->with('success', 'Pesan berhasil dikirim!');
+    return redirect()->back()->with('success', 'Terima kasih telah menghubungi kami! kami akan segera menangani');
 }
 
 }
